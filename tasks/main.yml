@@ -1,0 +1,5 @@
+---
+# tasks file for nutanix_role_prism_central_register_cluster
+  - import_tasks: check_variables.yml
+
+  - import_tasks: register_cluster.yml
