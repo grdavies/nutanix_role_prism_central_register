@@ -41,8 +41,8 @@
     # - debug:
     #     var: nutanix_pc_register
 
-      - ansible.builtin.fail:
-          msg: "could not register cluster to prism central"
-        when:
-          - nutanix_pc_register_current_state.json | length == 0
-          - nutanix_pc_register.failed
+    - ansible.builtin.fail:
+        msg: "could not register cluster to prism central"
+      when:
+        - nutanix_pc_register_current_state.json | length == 0
+        - nutanix_pc_register.failed
