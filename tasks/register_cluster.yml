@@ -1,10 +1,9 @@
 ---
-
 - name: Register Nutanix PE cluster "{{ nutanix_host }}" to Prism Central "{{ nutanix_pc_register_pc_ip }}"
   block:
     - name: Get Prism Element registration state
       uri:
-        url: "{{ nutanix_api_v1 }}/multicluster/cluster_external_state"
+        url: "https://{{nutanix_host}}:{{nutanix_port}}/PrismGateway/services/rest/v1/multicluster/cluster_external_state"
         method: GET
         validate_certs: "{{ validate_certs }}"
         headers:
@@ -22,7 +21,7 @@
 
     - name: Register Nutanix PE
       uri:
-        url: "{{ nutanix_api_v1 }}/multicluster/add_to_multicluster"
+        url: "https://{{nutanix_host}}:{{nutanix_port}}/PrismGateway/services/rest/v1/multicluster/add_to_multicluster"
         method: POST
         validate_certs: "{{ validate_certs }}"
         headers:
