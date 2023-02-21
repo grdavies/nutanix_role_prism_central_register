@@ -29,8 +29,8 @@
         body_format: json
         body:
           ipAddresses: ["{{ nutanix_pc_register_pc_ip }}"]
-          username: "{{nutanix_pc_register_pc_username }}"
-          password: "{{nutanix_pc_register_pc_password }}"
+          username: "{{ nutanix_pc_register_pc_username }}"
+          password: "{{ nutanix_pc_register_pc_password }}"
           port: null
         status_code: 200
       register: nutanix_pc_register
@@ -40,7 +40,8 @@
     # - debug:
     #     var: nutanix_pc_register
 
-    - ansible.builtin.fail:
+    - name: Cluster Prism Central registration failed
+      ansible.builtin.fail:
         msg: "could not register cluster to prism central"
       when:
         - nutanix_pc_register_current_state.json | length == 0
