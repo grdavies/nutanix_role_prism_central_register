@@ -3,7 +3,7 @@
   block:
     - name: Get Prism Element registration state
       uri:
-        url: "https://{{nutanix_host}}:{{nutanix_port}}/PrismGateway/services/rest/v1/multicluster/cluster_external_state"
+        url: "https://{{ nutanix_host }}:{{ nutanix_port }}/PrismGateway/services/rest/v1/multicluster/cluster_external_state"
         method: GET
         validate_certs: "{{ validate_certs }}"
         headers:
@@ -21,7 +21,7 @@
 
     - name: Register Nutanix PE
       uri:
-        url: "https://{{nutanix_host}}:{{nutanix_port}}/PrismGateway/services/rest/v1/multicluster/add_to_multicluster"
+        url: "https://{{ nutanix_host }}:{{ nutanix_port }}/PrismGateway/services/rest/v1/multicluster/add_to_multicluster"
         method: POST
         validate_certs: "{{ validate_certs }}"
         headers:
